@@ -30,11 +30,11 @@ export async function GET(
 
 export async function PUT(
   req: Request,
-  {params}: {params: {productId: string}}
+  {params}: {params: Promise<{productId: string}>}
 ) {
   try {
     const body = await req.json();
-    const {productId} = params;
+    const {productId} = await params;
     const {
       name,
       price,
@@ -82,10 +82,10 @@ export async function PUT(
 
 export async function DELETE(
   req: Request,
-  {params}: {params: {productId: string}}
+  {params}: {params: Promise<{productId: string}>}
 ) {
   try {
-    const {productId} = params;
+    const {productId} = await params;
     const user = await auth();
 
     if (!productId) {

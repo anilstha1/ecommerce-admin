@@ -29,10 +29,10 @@ export async function GET(
 
 export async function PUT(
   req: Request,
-  {params}: {params: {categoryId: string}}
+  {params}: {params: Promise<{categoryId: string}>}
 ) {
   try {
-    const {categoryId} = params;
+    const {categoryId} = await params;
     const body = await req.json();
     const {name, billboardId} = body;
 
@@ -67,10 +67,10 @@ export async function PUT(
 
 export async function DELETE(
   req: Request,
-  {params}: {params: {categoryId: string}}
+  {params}: {params: Promise<{categoryId: string}>}
 ) {
   try {
-    const {categoryId} = params;
+    const {categoryId} = await params;
 
     if (!categoryId) {
       return new NextResponse("Category ID is required", {status: 400});
