@@ -1,5 +1,5 @@
 import OrdersClient from "@/components/orders/ordersClient";
-import {prisma} from "@/lib/db";
+import prisma from "@/lib/db";
 
 async function OrdersPage() {
   const orders = await prisma.order.findMany({

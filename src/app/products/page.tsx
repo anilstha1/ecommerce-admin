@@ -1,5 +1,5 @@
 import ProductsClient from "@/components/products/productsClient";
-import {prisma} from "@/lib/db";
+import prisma from "@/lib/db";
 
 async function ProductsPage() {
   const products = await prisma.product.findMany({

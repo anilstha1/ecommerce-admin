@@ -1,5 +1,5 @@
 import ProductForm from "@/components/products/product-form";
-import {prisma} from "@/lib/db";
+import prisma from "@/lib/db";
 
 async function ProductPage({params}: {params: {productId: string}}) {
   const product = await prisma.product.findUnique({

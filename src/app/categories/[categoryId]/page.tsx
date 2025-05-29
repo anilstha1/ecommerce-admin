@@ -1,5 +1,5 @@
 import CategoryForm from "@/components/categories/category-form";
-import {prisma} from "@/lib/db";
+import prisma from "@/lib/db";
 
 async function CategoryPage({params}: {params: {categoryId: string}}) {
   const category = await prisma.category.findUnique({

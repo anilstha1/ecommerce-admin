@@ -1,5 +1,5 @@
 import BillboardsClient from "@/components/billboards/billboardsClient";
-import {prisma} from "@/lib/db";
+import prisma from "@/lib/db";
 
 async function BillboardsPage() {
   const billboards = await prisma.billboard.findMany({
