@@ -4,10 +4,10 @@ import prisma from "@/lib/db";
 
 export async function GET(
   req: Request,
-  {params}: {params: {productId: string}}
+  {params}: {params: Promise<{productId: string}>}
 ) {
   try {
-    const {productId} = params;
+    const {productId} = await params;
 
     const product = await prisma.product.findUnique({
       where: {

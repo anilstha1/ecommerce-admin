@@ -3,10 +3,10 @@ import prisma from "@/lib/db";
 
 export async function GET(
   req: Request,
-  {params}: {params: {billboardId: string}}
+  {params}: {params: Promise<{billboardId: string}>}
 ) {
   try {
-    const {billboardId} = params;
+    const {billboardId} = await params;
 
     if (!billboardId) {
       return new NextResponse("BillboardID is required", {status: 400});
