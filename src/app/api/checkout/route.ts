@@ -2,7 +2,7 @@ import Stripe from "stripe";
 import {NextResponse} from "next/server";
 
 import {stripe} from "@/lib/stripe";
-import {prisma} from "@/lib/db";
+import prisma from "@/lib/db";
 import {Product} from "@/generated/prisma";
 
 const corsHeaders = {
