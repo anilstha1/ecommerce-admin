@@ -1,10 +1,7 @@
-import {NextRequest, NextResponse} from "next/server";
+import {NextResponse} from "next/server";
 import {prisma} from "@/lib/db";
 
-export async function GET(
-  req: NextRequest,
-  {params}: {params: {billboardId?: string}}
-) {
+export async function GET({params}: {params: {billboardId: string}}) {
   try {
     const {billboardId} = params;
 
