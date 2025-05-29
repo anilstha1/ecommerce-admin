@@ -16,11 +16,9 @@ const eslintConfig = [
     rules: {
       "@typescript-eslint/no-unused-vars": ["warn"],
     },
-    ignorePatterns: [
-      "src/generated/**/*",
-      "node_modules/.prisma/**/*",
-      ".next/**/*",
-    ],
+  },
+  {
+    ignores: ["src/generated/**/*", "node_modules/.prisma/**/*", ".next/**/*"],
   },
 ];
 
