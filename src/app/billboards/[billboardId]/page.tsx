@@ -1,10 +1,15 @@
 import BillboardForm from "@/components/billboards/billboard-form";
 import prisma from "@/lib/db";
 
-async function BillboardPage({params}: {params: {billboardId: string}}) {
+async function BillboardPage({
+  params,
+}: {
+  params: Promise<{billboardId: string}>;
+}) {
+  const {billboardId} = await params;
   const billboard = await prisma.billboard.findUnique({
     where: {
-      id: params.billboardId,
+      id: billboardId,
     },
   });
 

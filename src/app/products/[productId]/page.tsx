@@ -1,10 +1,11 @@
 import ProductForm from "@/components/products/product-form";
 import prisma from "@/lib/db";
 
-async function ProductPage({params}: {params: {productId: string}}) {
+async function ProductPage({params}: {params: Promise<{productId: string}>}) {
+  const {productId} = await params;
   const product = await prisma.product.findUnique({
     where: {
-      id: params.productId,
+      id: productId,
     },
     include: {
       category: true,
